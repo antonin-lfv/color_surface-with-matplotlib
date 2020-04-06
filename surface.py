@@ -1,6 +1,7 @@
 """ coloring with matplotlib """ 
 
 import matplotlib.pyplot as plt
+import numpy as np
  
 #L1 is the matrix with your data, with heights for example.
 #L1 size : nxm
