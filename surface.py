@@ -1,4 +1,4 @@
-""" color with matplotlib """ 
+""" coloring with matplotlib """ 
 
 import matplotlib.pyplot as plt
  
