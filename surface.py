@@ -2,83 +2,16 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
- 
-#L1 is the matrix with your data, with heights for example.
-#L1 size : nxm
- 
-n = len(L1) 
-m = len(L1[0])
- 
-#color range (I take 11 ranges here)
- 
-h1 = np.max(L1)
-h11 = np.min(L1)
-h2 = h1 - 0.1*(h1-h11)
-h3 = h1 - 0.2*(h1-h11)
-h4 = h1 - 0.3*(h1-h11)
-h5 = h1 - 0.4*(h1-h11)
-h6 = h1 - 0.5*(h1-h11)
-h7 = h1 - 0.6*(h1-h11)
-h8 = h1 - 0.7*(h1-h11)
-h9 = h1 - 0.8*(h1-h11)
-h10 = h1 - 0.9*(h1-h11)
+import random as rd
+import seaborn as sns
 
- 
-def rectangle(coords, color):
-    vtx = [(coords[0], coords[1]), (coords[0], coords[1]+1), (coords[0]+1, coords[1]+1), (coords[0]+1, coords[1])]
-    fig = plt.figure(1)
-    ax = fig.add_subplot(111)
-    x0, y0 = vtx[0]
-    width = vtx[2][0] - vtx[0][0]
-    height = vtx[2][1] - vtx[0][1]
-    rectangle = ptc.Rectangle((x0, y0),width,height,color=color, alpha=1.0 ,zorder=0)
-    ax.add_artist(rectangle)
-    ax.set_xlim((0, n))
-    ax.set_ylim((0, m))
-    ax.grid(True)
-    plt.show()
- 
+#L1 contains your data, with heights for example.
+#L1 size : nxm; type : numpy.ndarray
 
-def range_color(n):
-    if n>=h1:
-        return('darkblue')
-    elif n>=h2:
-        return('mediumblue')
-    elif n>=h3:
-        return('dodgerblue')    
-    elif n>=h4:
-        return('lightskyblue')
-    elif n>=h5:
-        return('lightskyblue')
-    elif n>=h6:
-        return('aquamarine')
-    elif n>=h7:
-        return('springgreen')
-    elif n>=h8:
-        return('yellow')
-    elif n>=h9:
-        return('darkorange')
-    elif n>=h10:
-        return('red')
-    elif n>=h11:
-        return('maroon')
-        
+M = np.rd.randint(0,100,[10,20]) # random matrix
 
-def paintbynumber(valeurs):
-    plt.clf()
-    plt.xlim(0,n)
-    plt.ylim(0,m)
-    for i in range(n):
-        for j in range(m):
-            (rectangle((i,j),intervalle_couleur(valeurs[i][j])))
-    plt.show()
+n = M.shape[0]
+m = M.shape[1]
 
-#plot the result
-
-def plot():
-    paintbynumber(L1)
-    
-
-#an example of L1:
-
-L1 = [[7.894736842105264, 7.894736842105264, 7.894736842105264, 8.947368421052632, 8.947368421052632, 10.0, 10.0, 10.0, 10.0, 10.0],[6.842105263157896, 6.842105263157896, 7.894736842105264, 8.947368421052632, 8.947368421052632, 8.947368421052632, 10.0, 10.0, 10.0, 10.0], [5.789473684210527, 5.789473684210527, 5.789473684210527, 6.842105263157896, 6.842105263157896, 7.894736842105264, 8.947368421052632, 10.0, 10.0, 10.0], [5.789473684210527, 5.789473684210527, 5.789473684210527, 5.789473684210527, 5.789473684210527, 6.842105263157896, 6.842105263157896, 8.947368421052632, 10.0, 10.0], [3.6842105263157894, 4.736842105263158, 4.736842105263158, 5.789473684210527, 5.789473684210527, 5.789473684210527, 6.842105263157896, 7.894736842105264, 8.947368421052632, 10.0], [3.6842105263157894, 3.6842105263157894, 3.6842105263157894, 3.6842105263157894, 4.736842105263158, 5.789473684210527, 5.789473684210527, 6.842105263157896, 8.947368421052632, 8.947368421052632], [2.6315789473684212, 2.6315789473684212, 2.6315789473684212, 3.6842105263157894, 3.6842105263157894, 5.789473684210527, 5.789473684210527, 6.842105263157896, 8.947368421052632, 8.947368421052632], [1.5789473684210527, 1.5789473684210527, 2.6315789473684212, 2.6315789473684212, 3.6842105263157894, 4.736842105263158, 5.789473684210527, 5.789473684210527, 7.894736842105264, 7.894736842105264], [0.5263157894736843, 0.5263157894736843, 1.5789473684210527, 2.6315789473684212, 3.6842105263157894, 4.736842105263158, 5.789473684210527, 5.789473684210527, 6.842105263157896, 7.894736842105264], [-0.5263157894736843, 0.5263157894736843, 1.5789473684210527, 2.6315789473684212, 3.6842105263157894, 3.6842105263157894, 5.789473684210527, 5.789473684210527, 6.842105263157896, 7.894736842105264]]
+sns.heatmap(A, cmap='terrain')
+plt.show()
