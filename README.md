@@ -6,3 +6,7 @@ The L1 matrix need to be a numpy.array, and a n*m size matrix.
 The result of the algorithm is in the file "result.png".
 
 You can change the color of the levels, by changing cmap value.
+
+## example
+
+![result](https://user-images.githubusercontent.com/63207451/92334979-ea98df00-f092-11ea-9982-e6f732134703.png)
